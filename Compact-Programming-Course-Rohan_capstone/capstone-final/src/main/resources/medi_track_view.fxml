@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="de.fhdo.sama.capstone.MediTrackController"
+            style="-fx-background-color: #f4f4f4;"> <!-- Updated background for better aesthetics -->
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+            <Label text="MediTrack: Java based AGV Simulation System" style="-fx-font-weight: bold; -fx-font-size: 16pt; -fx-text-fill: #333;"/>
+            
+            <!-- Delivery Controls (Group 1) -->
+            <HBox alignment="CENTER_LEFT" spacing="15" style="-fx-border-color: #ccc; -fx-border-radius: 5; -fx-padding: 10; -fx-background-color: #fff;">
+                <Label text="Source Warehouse:" style="-fx-font-weight: bold;"/>
+                <ChoiceBox fx:id="warehouseChoice" prefWidth="180"/>
+                
+                <Label text="Destination Hospital:" style="-fx-font-weight: bold;"/>
+                <ChoiceBox fx:id="hospitalChoice" prefWidth="180"/>
+                
+                <Label text="AGV:" style="-fx-font-weight: bold;"/>
+                <ChoiceBox fx:id="agvChoice" prefWidth="180"/>
+                
+                <Region HBox.hgrow="ALWAYS"/>
+                
+                <Button fx:id="startDeliveryBtn" text="Start Delivery" prefWidth="150" style="-fx-background-color: #007bff; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            </HBox>
+            
+            <!-- Inventory and Utility Controls (Group 2) -->
+            <HBox alignment="CENTER_LEFT" spacing="15" style="-fx-border-color: #ccc; -fx-border-radius: 5; -fx-padding: 10; -fx-background-color: #fff;">
+                <Label text="Medicine:" style="-fx-font-weight: bold;"/>
+                <ChoiceBox fx:id="medicineChoice" prefWidth="250"/>
+                
+                <Label text="Quantity:" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="quantityField" prefWidth="80" promptText="Units"/>
+                
+                <Button fx:id="placeOrderBtn" text="Place Order" prefWidth="110" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                
+                <Region HBox.hgrow="ALWAYS"/>
+                
+                <Label text="AGV Utility:" style="-fx-font-weight: bold;"/>
+                <ChoiceBox fx:id="stationChoice" prefWidth="120"/>
+                <Button fx:id="chargeAgvBtn" text="Charge AGV" prefWidth="120" style="-fx-background-color: #ffc107; -fx-text-fill: #333; -fx-font-weight: bold;"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="0" right="15" bottom="0" left="15"/>
+            </padding>
+
+            <!-- Status Lists -->
+            <HBox spacing="15" VBox.vgrow="ALWAYS">
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Warehouses (Current Stock)" style="-fx-font-weight: bold; -fx-text-fill: #333;"/>
+                    <ListView fx:id="warehouseList" VBox.vgrow="ALWAYS" style="-fx-background-color: #fff; -fx-border-color: #ddd"/>
+                </VBox>
+
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Hospitals (Destinations)" style="-fx-font-weight: bold; -fx-text-fill: #333;"/>
+                    <ListView fx:id="hospitalList" VBox.vgrow="ALWAYS" style="-fx-background-color: #fff; -fx-border-color: #ddd"/>
+                </VBox>
+
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Available Medicines" style="-fx-font-weight: bold; -fx-text-fill: #333;"/>
+                    <ListView fx:id="medicineList" VBox.vgrow="ALWAYS" style="-fx-background-color: #fff; -fx-border-color: #ddd"/>
+                </VBox>
+
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="AGVs (Status &amp; Battery)" style="-fx-font-weight: bold; -fx-text-fill: #333;"/>
+                    <ListView fx:id="agvList" VBox.vgrow="ALWAYS" style="-fx-background-color: #fff; -fx-border-color: #ddd"/>
+                </VBox>
+            </HBox>
+	
+            <!-- Activity Log -->
+            <Label text="Activity Log" style="-fx-font-weight: bold; -fx-text-fill: #333;"/>
+            <!-- This is line 77: The style attribute has been cleaned to be robust against XML parsing issues -->
+            <TextArea fx:id="logArea" prefHeight="200" wrapText="true" style="-fx-border-color: #ddd; -fx-background-color: #fff"/>
+        </VBox>
+    </center>
+
+    <padding>
+        <Insets top="8" right="8" bottom="8" left="8"/>
+    </padding>
+</BorderPane>

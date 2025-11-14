@@ -1,0 +1,50 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "maven-compile",
+            "type": "shell",
+            "command": "mvn",
+            "args": [
+                "clean",
+                "compile"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/capstone"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "maven-javafx-run",
+            "type": "shell",
+            "command": "mvn",
+            "args": [
+                "javafx:run"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/capstone"
+            },
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "maven-package",
+            "type": "shell",
+            "command": "mvn",
+            "args": [
+                "clean",
+                "package"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/capstone"
+            },
+            "group": "build",
+            "problemMatcher": []
+        }
+    ]
+}
+
